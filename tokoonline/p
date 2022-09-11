@@ -1,0 +1,37 @@
+<div class="modal">
+  <div class="modal-content">
+      <span class="close-button">×</span>
+      <form action="checkout.php<?=$dt_prd['id_produk']?>" method=" POST" enctype="multipart/form-data">
+      Jumlah:
+    <input type="number" name="jml"><br><br>
+    <?php
+    include "koneksi.php";
+    echo "<a href='checkout.php?id_produk=".$dt_prd['id_produk']."' class='btn2'>Beli Sekarang</a>"
+      
+    ?>
+    </form>
+  </div>
+</div>
+<script>
+const modal = document.querySelector(".modal");
+const trigger = document.getElementById("tombol");
+const closeButton = document.querySelector(".close-button");
+
+function toggleModal() {
+    modal.classList.toggle("show-modal");
+    // document.getElementById("header").style.display = "hide";
+}
+
+function windowOnClick(event) {
+    if (event.target === modal) {
+        toggleModal();
+    }
+}
+
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
+</script>
+  
+
+
+  </div>
